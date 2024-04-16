@@ -77,10 +77,30 @@
                         <p>Total $36.98</p>
                         <p>Cargado a la tarjeta ***89</p>
                         <p>Se envia a Direccion</p>
-                        <button class="btn btn-success">Download Receipt</button>
+                        <button id="downloadBtn" class="btn btn-success">Download Receipt</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </body>
+    <script>
+        document.getElementById('downloadBtn').onclick = function () {
+            // Contenido de la factura
+            var facturaContenido = `Cliente: correo@dominio\nNombre: Nombre\nLibro1 $10.99\nLibro2 $10.99\nLibro3 $9.99\nLibro4 $7.99\nTotal $36.98\nCargado a la tarjeta ***89\nSe envia a Direccion`;
+
+            // Crear un elemento de enlace temporal
+            var link = document.createElement('a');
+            link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(facturaContenido);
+            link.download = 'factura.txt';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+
+            // Simular el clic en el enlace para iniciar la descarga
+            link.click();
+
+            // Eliminar el elemento de enlace temporal
+            document.body.removeChild(link);
+        };
+    </script>
 </html>

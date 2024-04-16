@@ -13,7 +13,7 @@ namespace TripAdvisor.DatabaseHelper
 	public class Database
 	{
 		const string database = "TripAdvisor";
-		const string server = "NELA";
+		const string server = "LAPTOP-G02OT5LT";
 		SqlConnection connection = new SqlConnection($"Data Source={server};Initial Catalog={database};Integrated Security=True");
 
 		public DataTable GetTrips()
